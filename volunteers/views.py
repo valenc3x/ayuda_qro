@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from .models import Institution, Program, VolunteerRegistry
@@ -6,76 +6,48 @@ from .models import Institution, Program, VolunteerRegistry
 # Create your views here.
 
 def home(request):
-    return render(request)
+    return render_to_response('home.html')
 
 class InstitutionCreate(CreateView):
+    template_name = 'form.html'
     model = Institution
-    fields = [
-        'name',
-        'description',
-        'address',
-        'telephone',
-        'email',
-        'web_address'
-    ]
 
 
 class InstitutionUpdate(UpdateView):
+    template_name = 'form.html'
     model = Institution
-    fields = [
-        'name',
-        'description',
-        'address',
-        'telephone',
-        'email',
-        'web_address'
-    ]
 
 
 class InstitutionDelete(DeleteView):
+    template_name = 'form.html'
     model = Institution
     success_url = reverse_lazy('author-list')
 
 
 class ProgramCreate(CreateView):
+    template_name = 'form.html'
     model = Program
-    fields = [
-        'name',
-        'description',
-        'period',
-        'time_of_day',
-        'description'
-    ]
+
 
 
 class ProgramUpdate(UpdateView):
+    template_name = 'form.html'
     model = Program
-    fields = [
-        'name',
-        'description',
-        'period',
-        'time_of_day',
-        'description'
-    ]
+
 
 
 class ProgramDelete(DeleteView):
+    template_name = 'form.html'
     model = Program
     success_url = reverse_lazy('author-list')
 
 
 class VolunteerRegistryCreate(CreateView):
+    template_name = 'form.html'
     model = VolunteerRegistry
-    fields = [
-        'name',
-        'father_last_name',
-        'mother_last_name',
-        'telephone',
-        'email',
-        'project'
-    ]
 
 
 class VolunteerRegistryDelete(DeleteView):
+    template_name = 'form.html'
     model = VolunteerRegistry
     success_url = reverse_lazy('author-list')

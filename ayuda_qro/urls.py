@@ -2,9 +2,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from volunteers.views import *
 
-urlpatterns = patterns('ayuda_qro.views',
+urlpatterns = patterns('volunteers.views',
     # Examples:
-    url(r'^$', '.home', name='home'),
+    url(r'^$', 'home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(
         r'^instituciones/nueva$',

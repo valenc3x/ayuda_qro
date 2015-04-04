@@ -1,0 +1,77 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway";
+}
+a:hover {
+  color: #e53b51;
+}
+a:active {
+  font-weight: bolder;
+}
+textarea {
+  resize: none;
+}
+div,
+span,
+.well,
+.container,
+.jumbotron {
+  border-radius: 0;
+}
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 90px;
+  background: #1cc3c9;
+  z-index: 99;
+  box-shadow: #393939 3px 0 5px;
+}
+header nav div {
+  line-height: 90px;
+}
+header nav .logo {
+  font-size: 1.3em;
+}
+header nav .menu ul {
+  float: right;
+}
+header nav .menu ul li {
+  font-size: 1.3em;
+  line-height: 60px;
+  list-style: none;
+  margin: 5px;
+  padding: 5px;
+  color: #f6f6f6;
+}
+header nav .menu ul li a {
+  color: inherit;
+}
+header nav .menu ul li .cta {
+  padding: 10px;
+  background: #00acc1;
+  font-weight: 700;
+  text-decoration: none;
+}
+.clear {
+  height: 90px;
+  width: 100%;
+}
+.content {
+  background: #f6f6f6;
+  padding: 30px;
+  font-size: 1m;
+}
+footer {
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  line-height: 60px;
+  text-align: center;
+  background: #393939;
+  color: #f6f6f6;
+  font-weight: 700;
+  bottom: 0;
+}

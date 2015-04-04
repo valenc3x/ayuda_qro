@@ -27,7 +27,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -37,7 +36,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # tools
+    # 'debug_toolbar',
+    'widget_tweaks',
+    # apps
     'volunteers'
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,5 +90,5 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  ''),
-    'templates'
+    'volunteers/templates'
 )

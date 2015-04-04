@@ -1,0 +1,85 @@
+@vr:60px;
+@clear: #F6F6F6;
+@lagoon: #1CC3C9;
+@gr: #00ACC1;
+@pinkerton: #E53B51;
+@charcoal: #393939;
+
+@bodycopy: 1m;
+@byline: 0.8em;
+@title: 1.3em;
+
+html, body{ margin: 0; padding: 0; font-family: "Raleway"}
+a{
+  &:link{  }
+  &:visited{  }
+  &:hover{ color: @pinkerton }
+  &:active{ font-weight: bolder; }
+}
+textarea { resize: none; }
+div, span, .well, .container, .jumbotron{ border-radius: 0; }
+
+header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 1.5*@vr;
+  background: @lagoon;
+  z-index: 99;
+  box-shadow: @charcoal 3px 0 5px;
+  nav{
+    div{
+      line-height: 1.5*@vr;
+    }
+    .logo{
+      font-size: @title;
+    }
+    .menu{
+      ul{
+        float: right;
+        li{
+          font-size: @title;
+          line-height: @vr;
+          list-style: none;
+          margin: 5px;
+          padding: 5px;
+          color: @clear;
+          a{
+            color: inherit;
+          }
+          .cta{
+            padding: 10px;
+            background: @gr;
+            font-weight: 700;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.clear{
+  height: 1.5*@vr;
+  width: 100%;
+}
+
+.content{
+  background: @clear;
+  padding: 30px;
+  font-size: @bodycopy;
+}
+
+
+footer{
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  line-height: @vr;
+  text-align: center;
+  background: @charcoal;
+  color: @clear;
+  font-weight: 700;
+  bottom: 0;
+}
