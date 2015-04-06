@@ -3,9 +3,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Raleway";
+  background: #F6F6F6;
+  height: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: blink;
 }
 a:hover {
   color: #e53b51;
+  text-decoration: none;
 }
 a:active {
   font-weight: bolder;
@@ -17,8 +24,13 @@ div,
 span,
 .well,
 .container,
+.btn,
 .jumbotron {
   border-radius: 0;
+}
+#body-wrapper {
+  min-height: 100%;
+  position: relative;
 }
 header {
   width: 100%;
@@ -46,32 +58,96 @@ header nav .menu ul li {
   padding: 5px;
   color: #f6f6f6;
 }
-header nav .menu ul li a {
-  color: inherit;
-}
 header nav .menu ul li .cta {
-  padding: 10px;
+  padding: 15px;
   background: #00acc1;
   font-weight: 700;
   text-decoration: none;
 }
-.clear {
-  height: 90px;
-  width: 100%;
+header nav .menu ul li .cta:hover {
+  color: #e53b51;
 }
 .content {
   background: #f6f6f6;
-  padding: 30px;
   font-size: 1m;
+  padding-bottom: 70px;
+  padding-top: 90px;
 }
 footer {
   height: 70px;
   width: 100%;
   position: absolute;
+  bottom: 0;
   line-height: 60px;
   text-align: center;
   background: #393939;
   color: #f6f6f6;
   font-weight: 700;
-  bottom: 0;
+}
+section {
+  width: 100%;
+  min-height: 50vh;
+  border-bottom: solid 1px gray;
+}
+#home #main {
+  background: #f6f6f6;
+}
+#home #main #carousel .carousel-inner {
+  height: 60vh;
+}
+#home #main #carousel .carousel-info {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+}
+#home #main #carousel .carousel-info .jumbotron {
+  padding: 50px;
+  background: rgba(200, 200, 200, 0.9);
+}
+#home #steps {
+  margin: 0 auto;
+  display: block;
+  width: 72vw;
+}
+#home #steps #step-circle {
+  width: 200px;
+  height: 200px;
+  background: #393939;
+  margin: 20px 100px;
+  line-height: 240px;
+  color: #f6f6f6;
+  text-align: center;
+}
+#home #steps #step-text {
+  width: 200px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.3em;
+  color: #393939;
+  margin: 0 100px;
+}
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+.list,
+.details,
+.confirm {
+  margin: 50px 0;
 }

@@ -17,31 +17,30 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
     </head>
     <body>
-        <header>
-            <nav class="row">
-                <div class="logo col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-2 col-xs-offset-1">
-                    <p class="text-center">AyudaQRO</p>
-                </div>
-                <div class="menu col-md-7 col-sm-7 col-xs-7">
-                    <ul class="list-inline ">
-                        <li><a href="#">Principal</a></li>
-                        <li><a href="#">Mision</a></li>
-                        <li><a href="#">Instituciones</a></li>
-                        <li><a href="#">Programas</a></li>
-                        <li><a class="cta" href="#">Participa</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <div class="clear"></div>
-        <div class="content">
-            <div class="container">
+        <div id="body-wrapper">
+            <header>
+                <nav class="row">
+                    <div class="logo col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-2 col-xs-offset-1">
+                        <p class="text-center"><a href="/">AyudaQro</a></p>
+                    </div>
+                    <div class="menu col-md-7 col-sm-7 col-xs-7">
+                        <ul class="list-inline ">
+                            <li><a href="/">Principal</a></li>
+                            <li><a href="#">Mision</a></li>
+                            <li><a href="/instituciones">Instituciones</a></li>
+                            <li><a href="#">Programas</a></li>
+                            <li><a class="cta" href="#">Participa</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <div class="content">
                 {% block content %} {% endblock %}
             </div>
+            <footer>
+                <p> AyudaQro | {% now "Y" %} </p>
+            </footer>
         </div>
-        <footer>
-            <p> AyudaQro | {%  now "Y" %} </p>
-        </footer>
         {#  JS  #}
         <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

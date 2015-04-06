@@ -13,6 +13,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 secret = os.environ['AQRO_SECRET']
+db = os.environ['AQRO_DB']
+db_user = os.environ['AQRO_USER']
+db_pass = os.environ['AQRO_PASS']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -64,8 +67,12 @@ WSGI_APPLICATION = 'ayuda_qro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': db,
+        'USER': db_user,
+        'PASSWORD': db_pass,
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

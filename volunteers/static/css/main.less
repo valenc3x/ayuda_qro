@@ -9,15 +9,33 @@
 @byline: 0.8em;
 @title: 1.3em;
 
-html, body{ margin: 0; padding: 0; font-family: "Raleway"}
+// general style
+html, body{
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway";
+  background: #F6F6F6;
+  height: 100%;
+}
 a{
+  color: inherit;
+  text-decoration: blink;
   &:link{  }
   &:visited{  }
-  &:hover{ color: @pinkerton }
+  &:hover{ color: @pinkerton; text-decoration: none; }
   &:active{ font-weight: bolder; }
 }
+
+// overwrites and look&feel styles
 textarea { resize: none; }
-div, span, .well, .container, .jumbotron{ border-radius: 0; }
+div, span, .well, .container, .btn, .jumbotron{ border-radius: 0; }
+
+// site structure styles
+
+#body-wrapper{
+  min-height: 100%;
+  position: relative;
+}
 
 header{
   width: 100%;
@@ -44,42 +62,123 @@ header{
           margin: 5px;
           padding: 5px;
           color: @clear;
-          a{
-            color: inherit;
-          }
-          .cta{
-            padding: 10px;
+          .cta {
+            padding: 15px;
             background: @gr;
             font-weight: 700;
             text-decoration: none;
+            &:hover {
+              color: @pinkerton;
+            }
           }
+
         }
       }
     }
   }
 }
 
-
-.clear{
-  height: 1.5*@vr;
-  width: 100%;
-}
-
 .content{
   background: @clear;
-  padding: 30px;
   font-size: @bodycopy;
+  padding-bottom: 70px;
+  padding-top: 1.5*@vr;
 }
 
-
-footer{
+footer {
   height: 70px;
   width: 100%;
   position: absolute;
+  bottom: 0;
   line-height: @vr;
   text-align: center;
   background: @charcoal;
   color: @clear;
   font-weight: 700;
-  bottom: 0;
+}
+
+section{
+  width: 100%;
+  min-height: 50vh;
+  border-bottom: solid 1px gray;
+}
+
+// landing styles
+#home{
+  #main{
+    background: @clear;
+    #carousel{
+      .carousel-inner{
+        height: 60vh;
+      }
+      .carousel-info{
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        .jumbotron{
+          padding: 50px;
+          background: rgba(200, 200, 200, 0.9);
+        }
+      }
+    }
+  }
+  #steps {
+    margin: 0 auto;
+    display: block;
+    width: 72vw;
+    #step-circle {
+      width: 200px;
+      height: 200px;
+      background: @charcoal;
+      margin: 20px 100px;
+      line-height: 240px;
+      color: @clear;
+      text-align: center;
+    }
+    #step-text {
+      width: 200px;
+      line-height: 50px;
+      text-align: center;
+      font-size: @title;
+      color: @charcoal;
+      margin: 0 100px;
+    }
+  }
+}
+
+// fade animation for bootstrap carousel
+.carousel-fade {
+  .carousel-inner {
+    .item {
+      opacity: 0;
+      transition-property: opacity;
+    }
+
+    .active {
+      opacity: 1;
+    }
+
+    .active.left,
+    .active.right {
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .next.left,
+    .prev.right {
+      opacity: 1;
+    }
+  }
+
+  .carousel-control {
+    z-index: 2;
+  }
+}
+
+// list styles
+.list,
+.details,
+.confirm{
+  margin: 50px 0;
 }

@@ -8,19 +8,34 @@ class Institution(models.Model):
     name = models.CharField('Nombre', max_length=140)
     description = models.TextField('Descripción')
     address = models.TextField('Dirección')
-    telephone = models.CharField("Teléfono", max_length=15)
-    email = models.EmailField()
-    web_address = models.URLField('Dirección Web')
-    administrator = models.OneToOneField(User, related_name='institutions')
+    telephone = models.CharField('Teléfono', max_length=15, null=True,
+                                 blank=True)
+    email = models.EmailField('Correo Electrónico', null=True, blank=True)
+    web_address = models.URLField('Dirección Web', null=True, blank=True)
+    administrator = models.ForeignKey(User, related_name='institutions')
 
     def __unicode__(self):
         return self.name
+
+    def get_details(self):
+        return {
+            'id': self.id,
+            'data': (
+                ('Nombre', self.name),
+                ('Descripción', self.description),
+                ('Dirección', self.address),
+                ('Teléfono', self.telephone),
+                ('Correo Electrónico', self.email),
+                ('Dirección Web', self.web_address)
+            )
+        }
 
 
 class Program(models.Model):
     name = models.CharField('Nombre',max_length=140)
     description = models.TextField('Descripción')
-    requirements = models.TextField('Conocimientos necesarios')
+    requirements = models.TextField('Conocimientos necesarios', null=True,
+                                    blank=True)
     PERIOD = (
         (101, 'Diario'),
         (102, 'Semanal'),
@@ -52,6 +67,7 @@ class Program(models.Model):
     def get_by_institution(i_id):
         return Program.objects.get()
 
+
 class VolunteerRegistry(models.Model):
     name = models.CharField('Nombre', max_length=140)
     father_last_name =  models.CharField('Apellido Paterno', max_length=140)
@@ -62,11 +78,12 @@ class VolunteerRegistry(models.Model):
         (302, 'Mujer')
     )
     gender = models.IntegerField('Sexo', choices=GENDER)
-    occupation = models.CharField('Ocupación',max_length=140)
-    email = models.EmailField('Correo Electronico')
+    occupation = models.CharField('Ocupación',max_length=140, null=True,
+                                  blank=True)
+    email = models.EmailField('Correo Electrónico', null=True, blank=True)
     telephone = models.CharField("Teléfono", max_length=15)
     project = models.ForeignKey(Program, related_name='volunteers')
-    skills = models.TextField('Habilidades')
+    skills = models.TextField('Habilidades', null=True, blank=True)
     TIME = (
         (201, 'Mañana'),
         (202, 'Tarde'),
@@ -84,4 +101,3 @@ class VolunteerRegistry(models.Model):
 
     def __unicode__(self):
         return '%s a %s' % (self.name, self.project.name)
-

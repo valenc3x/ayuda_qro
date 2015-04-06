@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="list">
+            <h1> {{ view.title }} </h1>
+            <div class="list-group">
+                {% for item in object_list %}
+                    <a class="item list-group-item" href="{{ item.id }}"> {{ item }} </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
