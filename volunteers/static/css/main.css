@@ -19,6 +19,7 @@ a:active {
 }
 textarea {
   resize: none;
+  height: 5em!important;
 }
 div,
 span,
@@ -67,6 +68,9 @@ header nav .menu ul li .cta {
 header nav .menu ul li .cta:hover {
   color: #e53b51;
 }
+header nav #user-auth {
+  background: #1cc3c9;
+}
 .content {
   background: #f6f6f6;
   font-size: 1m;
@@ -109,22 +113,21 @@ section {
   display: block;
   width: 72vw;
 }
-#home #steps #step-circle {
-  width: 200px;
-  height: 200px;
+#home #steps #how-icons div {
+  padding: 30px;
   background: #393939;
-  margin: 20px 100px;
-  line-height: 240px;
   color: #f6f6f6;
   text-align: center;
 }
-#home #steps #step-text {
-  width: 200px;
-  line-height: 50px;
+#home #steps #how-text {
+  line-height: 40px;
   text-align: center;
   font-size: 1.3em;
   color: #393939;
-  margin: 0 100px;
+}
+#home #steps #how-text h1 {
+  min-height: 70px;
+  text-align: center;
 }
 .carousel-fade .carousel-inner .item {
   opacity: 0;
@@ -146,8 +149,16 @@ section {
 .carousel-fade .carousel-control {
   z-index: 2;
 }
+.errors ul {
+  list-style: none;
+}
 .list,
 .details,
 .confirm {
   margin: 50px 0;
+}
+.controls {
+  margin-top: 30px;
+  margin-right: 50px;
+  float: right;
 }

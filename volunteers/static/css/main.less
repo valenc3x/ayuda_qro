@@ -27,7 +27,8 @@ a{
 }
 
 // overwrites and look&feel styles
-textarea { resize: none; }
+textarea { resize: none; height: 5em!important; }
+
 div, span, .well, .container, .btn, .jumbotron{ border-radius: 0; }
 
 // site structure styles
@@ -74,6 +75,9 @@ header{
 
         }
       }
+    }
+    #user-auth{
+      background: @lagoon;
     }
   }
 }
@@ -126,24 +130,26 @@ section{
     margin: 0 auto;
     display: block;
     width: 72vw;
-    #step-circle {
-      width: 200px;
-      height: 200px;
-      background: @charcoal;
-      margin: 20px 100px;
-      line-height: 240px;
-      color: @clear;
-      text-align: center;
+    #how-icons {
+      div{
+        padding: 30px;
+        background: @charcoal;
+        color: @clear;
+        text-align: center;
+      }
     }
-    #step-text {
-      width: 200px;
-      line-height: 50px;
+    #how-text {
+      h1{
+        min-height: 70px;
+        text-align: center;
+      }
+      line-height: 40px;
       text-align: center;
       font-size: @title;
       color: @charcoal;
-      margin: 0 100px;
     }
   }
+
 }
 
 // fade animation for bootstrap carousel
@@ -176,9 +182,22 @@ section{
   }
 }
 
+.errors{
+  ul{
+    list-style: none;
+  }
+}
+
 // list styles
 .list,
 .details,
 .confirm{
   margin: 50px 0;
+}
+
+
+.controls{
+  margin-top: 30px;
+  margin-right: 50px;
+  float: right;
 }

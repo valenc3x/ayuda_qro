@@ -12,7 +12,8 @@ class Institution(models.Model):
                                  blank=True)
     email = models.EmailField('Correo Electrónico', null=True, blank=True)
     web_address = models.URLField('Dirección Web', null=True, blank=True)
-    administrator = models.ForeignKey(User, related_name='institutions')
+    administrator = models.ManyToManyField(User, related_name='institutions',
+                                      verbose_name='Encargado')
 
     def __unicode__(self):
         return self.name
@@ -29,6 +30,9 @@ class Institution(models.Model):
                 ('Dirección Web', self.web_address)
             )
         }
+
+    class Meta():
+        verbose_name = 'Institución'
 
 
 class Program(models.Model):
@@ -50,10 +54,11 @@ class Program(models.Model):
         (205, 'Todo el día')
     )
     time_of_day = models.IntegerField('Horario', choices=TIME)
-    institution = models.ForeignKey(Institution, related_name='programs')
+    institution = models.ForeignKey(Institution, related_name='programs',
+                                    verbose_name='Institucion')
 
     def __unicode__(self):
-        return '%s de %s'  % (self.name, self.insitution.name)
+        return '%s - %s'  % (self.name, self.institution.name)
 
     @classmethod
     def get_by_id(p_id):
@@ -67,6 +72,20 @@ class Program(models.Model):
     def get_by_institution(i_id):
         return Program.objects.get()
 
+    def get_details(self):
+        return {
+            'id': self.id,
+            'data': (
+                ('Nombre', self.name),
+                ('Descripción', self.description),
+                ('Conocimientos necesarios', self.requirements),
+                ('Periodo de tiempo', self.get_period_display()),
+                ('Horario', self.get_time_of_day_display()),
+            )
+        }
+
+    class Meta():
+        verbose_name = 'Proyecto'
 
 class VolunteerRegistry(models.Model):
     name = models.CharField('Nombre', max_length=140)
@@ -82,7 +101,8 @@ class VolunteerRegistry(models.Model):
                                   blank=True)
     email = models.EmailField('Correo Electrónico', null=True, blank=True)
     telephone = models.CharField("Teléfono", max_length=15)
-    project = models.ForeignKey(Program, related_name='volunteers')
+    project = models.ForeignKey(Program, related_name='volunteers',
+                                verbose_name='Programa')
     skills = models.TextField('Habilidades', null=True, blank=True)
     TIME = (
         (201, 'Mañana'),
@@ -101,3 +121,23 @@ class VolunteerRegistry(models.Model):
 
     def __unicode__(self):
         return '%s a %s' % (self.name, self.project.name)
+
+    def get_details(self):
+        return {
+            'id': self.id,
+            'data': (
+                ('Nombre', self.full_name),
+                ('Fecha de nacimiento', self.birth_date),
+                ('Sexo', self.get_gender_display()),
+                ('Programa', self.project),
+                ('Horario Disponible', self.get_time_availability_display()),
+                ('Teléfono', self.telephone),
+                ('Correo Electrónico', self.email),
+                ('Ocupación', self.occupation),
+
+            )
+        }
+
+    class Meta():
+        verbose_name = 'Voluntario'
+

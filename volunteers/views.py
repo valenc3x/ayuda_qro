@@ -18,14 +18,17 @@ def home(request):
 #
 
 class InstitutionCreate(CreateView):
-    template_name = 'form.html'
     model = Institution
+    template_name = 'form.html'
+    title = 'Nueva Institiución'
+    success_url = '/instituciones'
 
 
 class InstitutionUpdate(UpdateView):
-    template_name = 'form.html'
     model = Institution
-
+    template_name = 'form.html'
+    title = 'Editar Institución'
+    success_url = '/instituciones'
 
 class InstitutionDelete(DeleteView):
     template_name = 'confirm.html'
@@ -34,9 +37,10 @@ class InstitutionDelete(DeleteView):
 
 
 class InstitutionView(DetailView):
-    template_name = 'detail.html'
     model = Institution
+    template_name = 'detail.html'
     title = 'Detalles de la Institución'
+
 
     def get_object(self):
         object = super(InstitutionView, self).get_object()
@@ -48,40 +52,81 @@ class InstitutionList(ListView):
     template_name = 'list.html'
     title = "Instituciones"
 
-
 #
 # Programs
 #
 
 class ProgramCreate(CreateView):
-    template_name = 'form.html'
     model = Program
-
+    template_name = 'form.html'
+    title = 'Nuevo Programa'
+    success_url = '/programas'
 
 
 class ProgramUpdate(UpdateView):
-    template_name = 'form.html'
     model = Program
-
+    template_name = 'form.html'
+    title = 'Editar Programa'
+    success_url = '/programas'
 
 
 class ProgramDelete(DeleteView):
-    template_name = 'form.html'
     model = Program
-    success_url = reverse_lazy('home')
+    template_name = 'confirm.html'
+    success_url = reverse_lazy('list_program')
 
+
+class ProgramView(DetailView):
+    model = Program
+    template_name = 'detail.html'
+    title = 'Detalles del Programa'
+
+    def get_object(self):
+        object = super(ProgramView, self).get_object()
+        return object.get_details()
+
+
+class ProgramList(ListView):
+    model = Program
+    template_name = 'list.html'
+    title = "Programas"
+
+#
+# Volunteers
+#
 
 class VolunteerRegistryCreate(CreateView):
-    template_name = 'form.html'
     model = VolunteerRegistry
+    template_name = 'form.html'
+    title = 'Registro de Voluntario'
+    success_url = '/voluntarios'
 
 
 class VolunteerRegistryUpdate(UpdateView):
-    template_name = 'form.html'
     model = VolunteerRegistry
+    template_name = 'form.html'
+    title = 'Editar Registro de Voluntario'
+    success_url = '/voluntarios'
 
 
 class VolunteerRegistryDelete(DeleteView):
-    template_name = 'form.html'
     model = VolunteerRegistry
-    success_url = reverse_lazy('home')
+    template_name = 'confirm.html'
+    success_url = reverse_lazy('list_volunteer')
+
+
+class VolunteerRegistryView(DetailView):
+    model = VolunteerRegistry
+    template_name = 'detail.html'
+    title = 'Detalles del Voluntario'
+
+    def get_object(self):
+        object = super(VolunteerRegistryView, self).get_object()
+        return object.get_details()
+
+
+class VolunteerRegistryList(ListView):
+    model = VolunteerRegistry
+    template_name = 'list.html'
+    title = "Voluntarios"
+
