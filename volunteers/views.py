@@ -7,7 +7,9 @@ from django.views.generic.detail import DetailView
 from django.core.urlresolvers import reverse_lazy
 from .models import Institution, Program, VolunteerRegistry
 
-# Create your views here.
+#
+# Create your views here
+#
 
 def home(request):
     return render_to_response('home.html')

@@ -5,6 +5,7 @@
     <head lang="en">
         <meta charset="UTF-8">
         <title> AyudaQro </title>
+        <link rel="icon" href="{% static 'img/logo_icon_50.png' %}"/>
         {#  CSS  #}
         <link href='http://fonts.googleapis.com/css?family=Raleway:700,400'
               rel='stylesheet' type='text/css'>
@@ -21,7 +22,9 @@
             <header>
                 <nav class="row">
                     <div class="logo col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-2 col-xs-offset-1">
-                        <p class="text-center"><a href="/">AyudaQro</a></p>
+                        <p class="text-center"><a href="/"> <img
+                                src="{% static 'img/logo_alpha_50p.png' %}"
+                                alt="logo"/> </a></p>
                     </div>
                     <div class="menu col-md-7 col-sm-7 col-xs-7">
                         <ul class="list-inline ">
@@ -75,7 +78,11 @@
                             </button>
                             <div class="logout-form dropdown-menu" aria-labelledby="dropdownLogout">
                                 <a class="bnt btn-info" href="/logout">
-                                    <i class="fa fa-sign-out"></i>
+                                    <span class="text-big">
+                                        Logout
+                                        <i class="fa fa-sign-out fa-2x"></i>
+                                    </span>
+
                                 </a>
                             </div>
                         {% endif %}

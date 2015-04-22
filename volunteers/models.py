@@ -12,7 +12,7 @@ class Institution(models.Model):
                                  blank=True)
     email = models.EmailField('Correo Electrónico', null=True, blank=True)
     web_address = models.URLField('Dirección Web', null=True, blank=True)
-    administrator = models.ManyToManyField(User, related_name='institutions',
+    administrator = models.ForeignKey(User, related_name='institutions',
                                       verbose_name='Encargado')
 
     def __unicode__(self):
