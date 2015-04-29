@@ -91,7 +91,6 @@ footer {
 section {
   width: 100%;
   min-height: 50vh;
-  border-bottom: solid 1px gray;
 }
 #home #main {
   background: #f6f6f6;
@@ -107,6 +106,10 @@ section {
 #home #main #carousel .carousel-info .jumbotron {
   padding: 50px;
   background: rgba(200, 200, 200, 0.9);
+}
+#home #info {
+  padding: 20px 0;
+  background: #dddddd;
 }
 #home #steps {
   margin: 0 auto;
@@ -128,6 +131,10 @@ section {
 #home #steps #how-text h1 {
   min-height: 70px;
   text-align: center;
+}
+#home #about {
+  padding: 20px 0;
+  background: #c3c3c3;
 }
 .carousel-fade .carousel-inner .item {
   opacity: 0;
